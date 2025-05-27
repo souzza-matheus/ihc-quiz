@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# IHC Quest: O Desafio da Usabilidade
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um jogo de tabuleiro web interativo onde você assume o papel de um Analista de IHC (Interação Humano-Computador), viajando por diferentes empresas para resolver problemas de usabilidade na forma de quizzes de múltipla escolha.
 
-## Available Scripts
+## 🌟 Visão Geral
 
-In the project directory, you can run:
+O "IHC Quest" foi criado para ser uma ferramenta divertida e educativa, simulando desafios reais de usabilidade em um ambiente gamificado. O objetivo é testar e aprimorar seus conhecimentos em IHC enquanto se diverte resolvendo problemas em diversas empresas.
 
-### `npm start`
+## ✨ Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Tabuleiro Interativo:** Um mapa visual com diferentes empresas que representam seus desafios.
+* **Avatar do Analista:** Seu personagem se move pelo tabuleiro ao selecionar uma empresa.
+* **Problemas Aleatórios:** Cada empresa tem problemas de IHC que aparecem aleatoriamente, um por vez.
+* **Quizzes de Múltipla Escolha:** Resolva os problemas respondendo a quizzes com cenários e perguntas reais.
+* **Feedback Visual:** Receba feedback instantâneo e animado (Correto/Incorreto) após cada resposta.
+* **Progresso Visual:** Empresas com todos os problemas resolvidos são marcadas com um `✔` (checkmark).
+* **Pontuação:** Acumule pontos ao resolver os desafios corretamente.
+* **Modal de Introdução:** Explicação das regras do jogo no início para novos jogadores.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Tecnologias Utilizadas
 
-### `npm test`
+* **Frontend:** React.js
+    * **Gerenciamento de Estado:** React Hooks (`useState`, `useEffect`, `useCallback`)
+    * **Modularização:** Custom Hooks (`useGameLogic`) para concisão e organização.
+* **Estilização:** CSS puro com animações.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Instalação e Execução
 
-### `npm run build`
+Para configurar e rodar o projeto em sua máquina local:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **Clone o Repositório** (se estiver em um repositório Git) ou faça o download dos arquivos.
+    ```bash
+    git clone git@github.com:souzza-matheus/ihc-quiz.git
+    cd ihc-quest-game
+    ```
+    (Se você criou o projeto com `create-react-app`, você já deve estar no diretório do projeto.)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2.  **Instale as Dependências:**
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+3.  **Inicie o Servidor de Desenvolvimento:**
+    ```bash
+    npm start
+    # ou
+    yarn start
+    ```
+    O aplicativo será aberto no seu navegador padrão em `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💡 Como Contribuir
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contribuições são bem-vindas! Se você tiver ideias para novos problemas de IHC, empresas, funcionalidades ou melhorias de código, sinta-se à vontade para:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1.  Fazer um `fork` do projeto.
+2.  Criar uma nova `branch` (`git checkout -b feature/sua-feature`).
+3.  Implementar suas mudanças.
+4.  Fazer um `commit` de suas mudanças (`git commit -m 'feat: Adiciona nova funcionalidade X'`).
+5.  Fazer um `push` para a `branch` (`git push origin feature/sua-feature`).
+6.  Abrir um `Pull Request`.
 
-## Learn More
+## 📄 Licença
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📧 Contato
 
-### Code Splitting
+Se tiver alguma dúvida ou sugestão, entre em contato
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

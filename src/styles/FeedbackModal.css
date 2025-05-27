@@ -1,0 +1,60 @@
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2500;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.6); 
+  animation: feedbackOverlayFadeOut 1s forwards; 
+  animation-delay: 0.5s; 
+  opacity: 1;
+}
+
+
+.feedback-overlay.correct .feedback-content {
+  background-color: rgba(40, 167, 69, 0.95); 
+  color: white;
+}
+
+.feedback-overlay.incorrect .feedback-content {
+  background-color: rgba(220, 53, 69, 0.95); 
+  color: white;
+}
+
+.feedback-content {
+  padding: 30px 60px; 
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); 
+  font-size: 2em; 
+  font-weight: bold;
+  text-align: center;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: fadeInPop 0.3s ease-out forwards; 
+}
+
+@keyframes fadeInPop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes feedbackOverlayFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
