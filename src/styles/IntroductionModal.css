@@ -1,0 +1,105 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro para destaque */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Z-index alto para ficar acima de tudo */
+}
+
+.modal-content.introduction-modal {
+  background-color: #f7f7f7; /* Cor de fundo diferente para o modal de introdução */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  max-width: 700px;
+  width: 90%;
+  text-align: left;
+  color: #333;
+  animation: fadeInScale 0.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.introduction-modal h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2.2em;
+  text-align: center;
+}
+
+.introduction-modal h3 {
+  color: #34495e;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 5px;
+}
+
+.introduction-modal p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.introduction-modal ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.introduction-modal li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.introduction-modal li::before {
+  content: "💡"; /* Adiciona um ícone customizado como bullet point */
+  position: absolute;
+  left: 0;
+  color: #f39c12; /* Cor do ícone */
+  font-size: 1.2em;
+}
+
+.introduction-modal strong {
+  color: #e74c3c; /* Cor para o destaque da exclamação */
+}
+
+.start-game-button {
+  background-color: #27ae60; /* Verde vibrante */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: block; /* Ocupa a largura total */
+  width: 100%; /* Para centralizar horizontalmente */
+  margin-top: 30px;
+}
+
+.start-game-button:hover {
+  background-color: #229a54;
+  transform: translateY(-2px);
+}
+
+.start-game-button:active {
+  transform: translateY(0);
+}
