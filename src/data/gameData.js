@@ -3,8 +3,8 @@ export const gameData = {
     {
       id: 'empresa1',
       name: 'Loja de E-commerce "Click Fácil"',
-      position: { x: 150, y: 100 }, // Coordenadas no tabuleiro (top, left em pixels)
-      icon: '🛒', // Emoji simples para ícone
+      position: { x: 100, y: 150 },
+      icon: '🛒',
       problems: [
         {
           id: 'prob1_emp1',
@@ -47,7 +47,7 @@ export const gameData = {
     {
       id: 'empresa2',
       name: 'Startup de Tecnologia "InovAI"',
-      position: { x: 450, y: 250 },
+      position: { x: 600, y: 100 },
       icon: '💻',
       problems: [
         {
@@ -91,7 +91,7 @@ export const gameData = {
     {
       id: 'empresa3',
       name: 'Banco Digital "Dinheiro Fácil"',
-      position: { x: 250, y: 400 },
+      position: { x: 350, y: 400 },
       icon: '💰',
       problems: [
         {

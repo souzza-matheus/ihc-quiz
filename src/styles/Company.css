@@ -1,52 +1,60 @@
 .company {
   position: absolute;
-  background-color: #28a745; /* Cor da empresa */
+  background-color: #3498db;
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
-  border-radius: 8px;
-  padding: 10px 15px;
+  border-radius: 12px;
+  padding: 15px 20px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-width: 100px;
-  min-height: 80px;
-  z-index: 2; /* Acima das estradas */
-  transition: transform 0.2s ease-in-out;
+  min-width: 120px;
+  min-height: 100px;
+  z-index: 6;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .company:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .company-icon {
-  font-size: 2em;
-  margin-bottom: 5px;
+  font-size: 2.5em;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .company-name {
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .exclamation {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: red;
+  top: -15px;
+  right: -15px;
+  background-color: #e74c3c;
+  border: 3px solid white;
   color: white;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 1.2em;
-  animation: pulse 1s infinite alternate; /* Animação para a exclamação */
-  z-index: 3;
+  font-size: 1.5em;
+  animation: pulse 1s infinite alternate, bounce 0.8s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+  z-index: 7;
 }
 
 @keyframes pulse {
@@ -58,4 +66,13 @@
     transform: scale(1.1);
     opacity: 0.8;
   }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }

@@ -1,18 +1,34 @@
 .board {
   position: relative;
-  width: 700px; /* Tamanho fixo do tabuleiro */
-  height: 500px; /* Tamanho fixo do tabuleiro */
-  border: 2px solid #3498db;
-  background-color: #e6f7ff;
+  width: 800px;
+  height: 550px;
+  border: 4px solid #34495e;
+  border-radius: 15px;
+  background-color: #ecf0f1;
   margin: 20px auto;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background-image: url('../assets/map_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.board-paths {
+.board-paths line {
+  stroke: #5a7d9a;
+  stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-dasharray: 8 8;
+  transition: stroke 0.3s ease-in-out;
+}
+
+.board::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Abaixo dos elementos */
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
 }

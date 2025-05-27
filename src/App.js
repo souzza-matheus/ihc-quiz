@@ -1,7 +1,7 @@
-import{ useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Board from './components/board';
 import QuizModal from './components/quizModal';
-import IntroductionModal from './components/introductionModal'; // Importe o novo componente
+import IntroductionModal from './components/introductionModal';
 import { gameData } from './data/gameData';
 import './styles/App.css';
 
@@ -14,7 +14,7 @@ const App = () => {
   const [activeQuiz, setActiveQuiz] = useState(null);
   const [companiesWithActiveProblems, setCompaniesWithActiveProblems] = useState([]);
   const [score, setScore] = useState(0);
-  const [showIntroduction, setShowIntroduction] = useState(true); // Novo estado para o modal de introdução
+  const [showIntroduction, setShowIntroduction] = useState(true);
 
   const activateRandomProblem = useCallback(() => {
     const unresolvedCompanies = companies.filter(company =>
@@ -46,15 +46,14 @@ const App = () => {
     setCompaniesWithActiveProblems(prev => [...new Set([...prev, randomCompany.id])]);
   }, [companies]);
 
-  // Modificado: Ativar o problema apenas depois que a introdução for fechada
   useEffect(() => {
-    if (!showIntroduction) { // Só ativa problemas se o modal de introdução não estiver visível
+    if (!showIntroduction) {
       activateRandomProblem();
     }
-  }, [showIntroduction, activateRandomProblem]); // Adicionado showIntroduction como dependência
+  }, [showIntroduction, activateRandomProblem]);
 
   const handleCompanyClick = (companyId) => {
-    if (showIntroduction) return; // Impede cliques no tabuleiro se o modal de introdução estiver ativo
+    if (showIntroduction) return;
 
     const selectedCompany = companies.find(c => c.id === companyId);
     if (!selectedCompany) return;
@@ -102,17 +101,14 @@ const App = () => {
     setActiveQuiz(null);
   };
 
-  // Nova função para iniciar o jogo (fechar o modal de introdução)
   const handleStartGame = () => {
     setShowIntroduction(false);
   };
 
   return (
     <div className="app">
-      {/* Renderiza o IntroductionModal apenas se showIntroduction for true */}
       {showIntroduction && <IntroductionModal onStartGame={handleStartGame} />}
 
-      {/* O restante do jogo só é renderizado se o modal de introdução não estiver visível */}
       {!showIntroduction && (
         <>
           <h1>IHC Quest: O Desafio da Usabilidade</h1>
