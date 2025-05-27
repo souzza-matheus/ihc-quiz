@@ -1,0 +1,121 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Acima de tudo */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 90%;
+  text-align: left;
+}
+
+.modal-content h3 {
+  color: #333;
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.modal-content .scenario {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.modal-content .question {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.option-button:hover {
+  background-color: #e0e0e0;
+}
+
+.option-button.selected {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.modal-content button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.modal-content button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.modal-content button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedback {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.feedback.correct {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.feedback.incorrect {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.close-button {
+    background-color: #dc3545 !important; /* Override default button style for close */
+    margin-top: 20px;
+}
+
+.close-button:hover {
+    background-color: #c82333 !important;
+}

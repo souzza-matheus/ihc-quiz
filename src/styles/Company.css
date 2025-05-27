@@ -1,0 +1,61 @@
+.company {
+  position: absolute;
+  background-color: #28a745; /* Cor da empresa */
+  color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 100px;
+  min-height: 80px;
+  z-index: 2; /* Acima das estradas */
+  transition: transform 0.2s ease-in-out;
+}
+
+.company:hover {
+  transform: translateY(-3px);
+}
+
+.company-icon {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.company-name {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.exclamation {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  animation: pulse 1s infinite alternate; /* Animação para a exclamação */
+  z-index: 3;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}

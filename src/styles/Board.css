@@ -1,0 +1,18 @@
+.board {
+  position: relative;
+  width: 700px; /* Tamanho fixo do tabuleiro */
+  height: 500px; /* Tamanho fixo do tabuleiro */
+  border: 2px solid #3498db;
+  background-color: #e6f7ff;
+  margin: 20px auto;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.board-paths {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Abaixo dos elementos */
+}

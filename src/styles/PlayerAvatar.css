@@ -1,0 +1,7 @@
+.player-avatar {
+  position: absolute;
+  font-size: 3em; /* Tamanho do emoji */
+  transition: top 0.5s ease-in-out, left 0.5s ease-in-out; /* Animação suave */
+  z-index: 4; /* Acima de tudo */
+  transform: translate(-50%, -50%); /* Centraliza o emoji no ponto */
+}
