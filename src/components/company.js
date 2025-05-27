@@ -1,3 +1,4 @@
+import React from 'react';
 import '../styles/Company.css';
 
 const Company = ({ company, onClick, hasProblem }) => {
@@ -6,9 +7,9 @@ const Company = ({ company, onClick, hasProblem }) => {
       className="company"
       style={{ top: company.position.y, left: company.position.x }}
       onClick={() => onClick(company.id)}
+      title={company.name}
     >
-      <span className="company-icon">{company.icon}</span>
-      <span className="company-name">{company.name}</span>
+      <img src={company.image} alt={company.name} className="company-img-icon" />
       {hasProblem && <span className="exclamation">!</span>}
     </div>
   );

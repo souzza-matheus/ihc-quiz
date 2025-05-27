@@ -1,10 +1,20 @@
+import eCommerceImg from '../assets/ecommerce.png';
+import startUpImg from '../assets/startup.png';
+import bankImg from '../assets/bank.png';
+import clinicImg from '../assets/clinic.png';
+import agencyImg from '../assets/agency.png';
+import schoolImg from '../assets/school.png';
+
+
+
+
 export const gameData = {
   companies: [
     {
       id: 'empresa1',
       name: 'Loja de E-commerce "Click Fácil"',
-      position: { x: 100, y: 150 },
-      icon: '🛒',
+      position: { x: 100, y: 100 },
+      image: eCommerceImg,
       problems: [
         {
           id: 'prob1_emp1',
@@ -47,8 +57,8 @@ export const gameData = {
     {
       id: 'empresa2',
       name: 'Startup de Tecnologia "InovAI"',
-      position: { x: 600, y: 100 },
-      icon: '💻',
+      position: { x: 400, y: 50 },
+      image: startUpImg,
       problems: [
         {
           id: 'prob1_emp2',
@@ -91,8 +101,8 @@ export const gameData = {
     {
       id: 'empresa3',
       name: 'Banco Digital "Dinheiro Fácil"',
-      position: { x: 350, y: 400 },
-      icon: '💰',
+      position: { x: 700, y: 100 },
+      image: bankImg,
       problems: [
         {
           id: 'prob1_emp3',
@@ -127,6 +137,141 @@ export const gameData = {
             { text: 'Utilizar ícones de segurança reconhecíveis, mensagens claras sobre criptografia e verificação, e um design limpo e profissional.', isCorrect: true, feedback: 'Bingo! Um design que transmite profissionalismo e transparência sobre segurança aumenta a confiança do usuário.' },
             { text: 'Usar cores vibrantes e chamativas em todo o aplicativo.', isCorrect: false },
             { text: 'Remover todos os avisos de segurança.', isCorrect: false }
+          ],
+          resolved: false
+        }
+      ]
+    },
+    {
+      id: 'empresa4',
+      name: 'Clínica de Saúde "Bem-Estar Digital"',
+      position: { x: 150, y: 350 },
+      icon: '🏥',
+      image: clinicImg,
+      problems: [
+        {
+          id: 'prob1_emp4',
+          scenario: 'Pacientes idosos têm dificuldade em agendar consultas online devido à interface complexa.',
+          question: 'Qual a melhor forma de simplificar o agendamento?',
+          options: [
+            { text: 'Adicionar mais campos de informação obrigatórios.', isCorrect: false },
+            { text: 'Implementar um fluxo de agendamento em poucas etapas, com campos claros e grandes.', isCorrect: true, feedback: 'Isso mesmo! Simplificar o processo e usar elementos visuais claros ajuda muito usuários de todas as idades.' },
+            { text: 'Remover a opção de agendamento online.', isCorrect: false },
+            { text: 'Apenas adicionar um chatbot que responde a tudo.', isCorrect: false }
+          ],
+          resolved: false
+        },
+        {
+          id: 'prob2_emp4',
+          scenario: 'O aplicativo da clínica não oferece informações claras sobre o preparo para exames, gerando ligações frequentes.',
+          question: 'Como podemos melhorar a disponibilização dessas informações?',
+          options: [
+            { text: 'Enviar as informações por carta após a consulta.', isCorrect: false },
+            { text: 'Integrar instruções detalhadas e fáceis de encontrar diretamente no agendamento e na tela de exames.', isCorrect: true, feedback: 'Correto! Disponibilizar as informações no contexto certo reduz a necessidade de contato e melhora a autonomia do paciente.' },
+            { text: 'Criar um vídeo de 30 minutos sobre cada exame.', isCorrect: false },
+            { text: 'Apenas responder às perguntas quando o paciente ligar.', isCorrect: false }
+          ],
+          resolved: false
+        },
+        {
+          id: 'prob3_emp4',
+          scenario: 'Médicos reclamam que o sistema de prontuário eletrônico é lento e difícil de navegar durante as consultas.',
+          question: 'Qual a abordagem para otimizar o sistema para os profissionais?',
+          options: [
+            { text: 'Treinar os médicos para digitarem mais rápido.', isCorrect: false },
+            { text: 'Realizar análise de tarefas e otimizar fluxos de trabalho, simplificando a inserção e busca de dados.', isCorrect: true, feedback: 'Excelente! Entender o fluxo de trabalho real dos usuários e simplificar a interface aumenta a eficiência e a satisfação.' },
+            { text: 'Adicionar mais cores e animações ao sistema.', isCorrect: false },
+            { text: 'Forçar o uso de comandos de voz.', isCorrect: false }
+          ],
+          resolved: false
+        }
+      ]
+    },
+    {
+      id: 'empresa5',
+      name: 'Agência de Marketing "Criativa Digital"',
+      position: { x: 500, y: 300 },
+      icon: '🎨',
+      image: agencyImg,
+      problems: [
+        {
+          id: 'prob1_emp5',
+          scenario: 'A nova plataforma de gestão de projetos internos é confusa e a equipe não a utiliza de forma consistente.',
+          question: 'Qual o primeiro passo para aumentar a adoção da plataforma?',
+          options: [
+            { text: 'Obrigar todos a usar sob pena de multa.', isCorrect: false },
+            { text: 'Realizar workshops de treinamento práticos e coletar feedback para melhorias iterativas na interface.', isCorrect: true, feedback: 'Perfeito! Engajar os usuários e adaptar a ferramenta às suas necessidades é fundamental para a adoção.' },
+            { text: 'Adicionar mais funcionalidades complexas.', isCorrect: false },
+            { text: 'Mudar a logo da plataforma.', isCorrect: false }
+          ],
+          resolved: false
+        },
+        {
+          id: 'prob2_emp5',
+          scenario: 'Clientes têm dificuldade em acessar os relatórios de campanha, que estão em um portal com navegação escondida.',
+          question: 'Como melhorar o acesso aos relatórios?',
+          options: [
+            { text: 'Parar de gerar relatórios.', isCorrect: false },
+            { text: 'Criar um dashboard de fácil acesso com visualizações claras e links diretos para relatórios detalhados.', isCorrect: true, feedback: 'Correto! Um dashboard intuitivo e visível centraliza as informações importantes e melhora a transparência.' },
+            { text: 'Enviar todos os relatórios por e-mail em PDF.', isCorrect: false },
+            { text: 'Deixar a navegação mais complexa para maior segurança.', isCorrect: false }
+          ],
+          resolved: false
+        },
+        {
+          id: 'prob3_emp5',
+          scenario: 'A ferramenta de briefing para novos projetos é muito textual e desmotivadora para preencher.',
+          question: 'Como tornar o processo de briefing mais engajante?',
+          options: [
+            { text: 'Aumentar o número de campos de texto.', isCorrect: false },
+            { text: 'Utilizar elementos visuais, perguntas interativas e um formato de "passo a passo" gamificado.', isCorrect: true, feedback: 'Excelente! Tornar o processo mais visual e interativo diminui a carga cognitiva e aumenta a motivação para preencher formulários.' },
+            { text: 'Fazer com que a equipe preencha o briefing no lugar do cliente.', isCorrect: false },
+            { text: 'Remover todos os campos de texto.', isCorrect: false }
+          ],
+          resolved: false
+        }
+      ]
+    },
+    {
+      id: 'empresa6',
+      name: 'Escola Online "Mente Aberta"',
+      position: { x: 400, y: 500 },
+      icon: '🎓',
+      image: schoolImg,
+      problems: [
+        {
+          id: 'prob1_emp6',
+          scenario: 'Alunos reclamam que o ambiente virtual de aprendizagem é desorganizado e difícil de encontrar materiais de estudo.',
+          question: 'Como otimizar a organização do ambiente virtual?',
+          options: [
+            { text: 'Remover todos os materiais de estudo.', isCorrect: false },
+            { text: 'Implementar uma arquitetura de informação clara com categorias lógicas e um sistema de busca eficiente.', isCorrect: true, feedback: 'Acertou! Uma boa arquitetura de informação é fundamental para a navegabilidade e acesso a conteúdos em plataformas de e-learning.' },
+            { text: 'Deixar os alunos organizarem o próprio conteúdo.', isCorrect: false },
+            { text: 'Mudar o nome da escola.', isCorrect: false }
+          ],
+          resolved: false
+        },
+        {
+          id: 'prob2_emp6',
+          scenario: 'Professores têm dificuldade em usar a ferramenta de criação de conteúdo, que exige muitos passos e é pouco intuitiva.',
+          question: 'Como melhorar a ferramenta para os professores?',
+          options: [
+            { text: 'Contratar mais assistentes para os professores.', isCorrect: false },
+            { text: 'Simplificar a interface, reduzir o número de cliques e oferecer modelos pré-definidos para criação rápida de conteúdo.', isCorrect: true, feedback: 'Isso mesmo! Otimizar ferramentas para a eficiência de quem as utiliza frequentemente aumenta a produtividade e a satisfação.' },
+            { text: 'Fazer um manual de 300 páginas.', isCorrect: false },
+            { text: 'Apenas disponibilizar aulas em texto.', isCorrect: false }
+          ],
+          resolved: false
+        },
+        {
+          id: 'prob3_emp6',
+          scenario: 'Pais reclamam que não conseguem acompanhar o progresso dos filhos na plataforma de forma clara.',
+          question: 'Como podemos melhorar a visibilidade do progresso do aluno para os pais?',
+          options: [
+            { text: 'Parar de mostrar o progeto.', isCorrect: false },
+            { text: 'Criar um dashboard intuitivo para pais com gráficos de progresso, notas e atividades recentes do filho.', isCorrect: true, feedback: 'Perfeito! Dashboards claros e informativos empoderam os pais e aumentam o engajamento com a educação dos filhos.' },
+            { text: 'Enviar relatórios complexos por e-mail semanalmente.', isCorrect: false },
+            { text: 'Deixar o progresso apenas para os alunos e professores.', isCorrect: false }
           ],
           resolved: false
         }

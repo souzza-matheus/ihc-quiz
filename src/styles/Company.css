@@ -1,46 +1,53 @@
 .company {
   position: absolute;
-  background-color: #3498db;
-  background: linear-gradient(135deg, #3498db, #2980b9);
-  color: white;
-  border-radius: 12px;
-  padding: 15px 20px;
+  background: none; /* Fundo transparente */
+  border: none; /* Sem borda */
+  padding: 0; /* Sem padding no contêiner */
   cursor: pointer;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: none; /* Sem sombra no contêiner */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-width: 120px;
-  min-height: 100px;
+  width: 70px; /* Tamanho fixo para o ícone */
+  height: 70px; /* Tamanho fixo para o ícone */
   z-index: 6;
-  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease-in-out; /* Manter transição para hover */
 }
 
 .company:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px) scale(1.1); /* Efeito de flutuar e crescer no hover */
 }
 
+/* Estilo para emojis (se não houver imagem) */
 .company-icon {
-  font-size: 2.5em;
-  margin-bottom: 8px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 3.5em; /* Ícone emoji maior */
+  line-height: 1; /* Garante que o emoji não tenha espaço extra */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra mais destacada no emoji */
+  transition: transform 0.2s ease-in-out;
 }
 
-.company-name {
-  font-size: 0.9em;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+/* Estilo para imagens (se 'company.image' for usado) */
+.company-img-icon {
+  width: 100%; /* Ocupa o tamanho definido no .company */
+  height: 100%;
+  object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+  border-radius: 50%; /* Opcional: para ícones circulares */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para o ícone de imagem */
+  transition: transform 0.2s ease-in-out;
 }
+
+.company:hover .company-img-icon,
+.company:hover .company-icon {
+    transform: scale(1.05); /* Pequeno zoom no ícone ao passar o mouse */
+}
+
 
 .exclamation {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -15px; /* Posição ajustada em relação ao novo tamanho do ícone */
+  right: -15px; /* Posição ajustada em relação ao novo tamanho do ícone */
   background-color: #e74c3c;
   border: 3px solid white;
   color: white;
