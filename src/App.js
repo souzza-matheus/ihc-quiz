@@ -13,16 +13,33 @@ const App = () => {
   const [playerPosition, setPlayerPosition] = useState(companies[0].position);
   const [activeQuiz, setActiveQuiz] = useState(null);
   const [companiesWithActiveProblems, setCompaniesWithActiveProblems] = useState([]);
+  const [companiesFullyResolved, setCompaniesFullyResolved] = useState([]);
   const [score, setScore] = useState(0);
   const [showIntroduction, setShowIntroduction] = useState(true);
 
+ 
+  const [isProblemActive, setIsProblemActive] = useState(false);
+
   const activateRandomProblem = useCallback(() => {
+   
+    setCompanies(prevCompanies =>
+      prevCompanies.map(company => ({
+        ...company,
+        problems: company.problems.map(p => ({
+          ...p,
+          isActive: false 
+        }))
+      }))
+    );
+    setCompaniesWithActiveProblems([]); 
+
     const unresolvedCompanies = companies.filter(company =>
       company.problems.some(p => !p.resolved)
     );
 
     if (unresolvedCompanies.length === 0) {
       alert('Parabéns! Você resolveu todos os problemas de IHC!');
+      setIsProblemActive(false);
       return;
     }
 
@@ -43,14 +60,15 @@ const App = () => {
       )
     );
 
-    setCompaniesWithActiveProblems(prev => [...new Set([...prev, randomCompany.id])]);
+    setCompaniesWithActiveProblems([randomCompany.id]); 
+    setIsProblemActive(true); 
   }, [companies]);
 
   useEffect(() => {
-    if (!showIntroduction) {
+    if (!showIntroduction && !isProblemActive) {
       activateRandomProblem();
     }
-  }, [showIntroduction, activateRandomProblem]);
+  }, [showIntroduction, isProblemActive, activateRandomProblem]);
 
   const handleCompanyClick = (companyId) => {
     if (showIntroduction) return;
@@ -84,16 +102,18 @@ const App = () => {
         )
       );
 
+    
       const companyAfterResolution = companies.find(c => c.id === activeQuiz.companyId);
       const remainingUnresolvedProblems = companyAfterResolution.problems.filter(p => !p.resolved && p.id !== activeQuiz.problem.id);
 
       if (remainingUnresolvedProblems.length === 0) {
-        setCompaniesWithActiveProblems(prev => prev.filter(id => id !== activeQuiz.companyId));
+        setCompaniesFullyResolved(prev => [...new Set([...prev, activeQuiz.companyId])]);
+        setCompaniesWithActiveProblems(prev => prev.filter(id => id !== activeQuiz.companyId)); 
       }
       
-      setTimeout(() => {
-        activateRandomProblem();
-      }, 1000);
+      setActiveQuiz(null); 
+      setIsProblemActive(false); 
+
     }
   };
 
@@ -118,6 +138,7 @@ const App = () => {
             playerPosition={playerPosition}
             onCompanyClick={handleCompanyClick}
             companiesWithActiveProblems={companiesWithActiveProblems}
+            companiesFullyResolved={companiesFullyResolved} 
           />
           {activeQuiz && (
             <QuizModal
