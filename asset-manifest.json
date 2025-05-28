@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ihc-quiz/static/css/main.95ac5be8.css",
+    "main.js": "/ihc-quiz/static/js/main.79711501.js",
+    "static/media/map_background.png": "/ihc-quiz/static/media/map_background.7dcbdaaf010713a36622.png",
+    "static/media/school.png": "/ihc-quiz/static/media/school.91e0d9293c0c2e0c06ad.png",
+    "static/media/agency.png": "/ihc-quiz/static/media/agency.148d7b84ff086a4ea419.png",
+    "static/media/startup.png": "/ihc-quiz/static/media/startup.18738b78e9fd733d8963.png",
+    "static/media/ecommerce.png": "/ihc-quiz/static/media/ecommerce.5c6d959c01ef7c476540.png",
+    "static/media/clinic.png": "/ihc-quiz/static/media/clinic.2714027a8343968860f0.png",
+    "static/media/bank.png": "/ihc-quiz/static/media/bank.3aa91d5af7875e465495.png",
+    "index.html": "/ihc-quiz/index.html",
+    "main.95ac5be8.css.map": "/ihc-quiz/static/css/main.95ac5be8.css.map",
+    "main.79711501.js.map": "/ihc-quiz/static/js/main.79711501.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95ac5be8.css",
+    "static/js/main.79711501.js"
+  ]
+}
