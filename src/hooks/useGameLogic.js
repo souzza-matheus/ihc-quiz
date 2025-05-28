@@ -14,9 +14,11 @@ export const useGameLogic = () => {
   const [isProblemActive, setIsProblemActive] = useState(false);
   const [feedback, setFeedback] = useState(null);
 
-  const showFeedback = useCallback((message, type, duration = 1500) => {
+  const showFeedback = useCallback((message, type, duration = null) => {
     setFeedback({ message, type });
-    setTimeout(() => setFeedback(null), duration);
+    if (duration !== null) {
+      setTimeout(() => setFeedback(null), duration);
+    }
   }, []);
 
   const activateRandomProblem = useCallback(() => {
@@ -36,7 +38,7 @@ export const useGameLogic = () => {
     );
 
     if (unresolvedCompanies.length === 0) {
-      showFeedback('Parabéns! Todos os problemas resolvidos!', 'correct', 2000);
+      showFeedback('Parabéns! Você resolveu todos os problemas de IHC!', 'correct');
       setIsProblemActive(false);
       return;
     }
