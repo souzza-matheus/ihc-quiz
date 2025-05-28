@@ -3,6 +3,16 @@ import { gameData } from '../data/gameData';
 
 const initializeCompanies = () => JSON.parse(JSON.stringify(gameData.companies));
 
+const calculateTotalProblems = (companies) => {
+  return companies.reduce((total, company) => total + company.problems.length, 0);
+};
+
+const countResolvedProblemsInState = (companies) => {
+  return companies.reduce((count, company) => {
+    return count + company.problems.filter(p => p.resolved).length;
+  }, 0);
+};
+
 export const useGameLogic = () => {
   const [companies, setCompanies] = useState(initializeCompanies);
   const [playerPosition, setPlayerPosition] = useState(companies[0].position);
@@ -13,6 +23,13 @@ export const useGameLogic = () => {
   const [showIntroduction, setShowIntroduction] = useState(true);
   const [isProblemActive, setIsProblemActive] = useState(false);
   const [feedback, setFeedback] = useState(null);
+
+  const [totalProblems, setTotalProblems] = useState(() => calculateTotalProblems(initializeCompanies()));
+  const [resolvedProblemsCount, setResolvedProblemsCount] = useState(0);
+
+  useEffect(() => {
+    setResolvedProblemsCount(countResolvedProblemsInState(companies));
+  }, [companies]);
 
   const showFeedback = useCallback((message, type, duration = null) => {
     setFeedback({ message, type });
@@ -95,8 +112,8 @@ export const useGameLogic = () => {
     setTimeout(() => {
       if (isCorrect) {
         setScore(prevScore => prevScore + 100);
-        setCompanies(prevCompanies =>
-          prevCompanies.map(company =>
+        setCompanies(prevCompanies => {
+          const newCompanies = prevCompanies.map(company =>
             company.id === activeQuiz.companyId
               ? {
                   ...company,
@@ -105,8 +122,9 @@ export const useGameLogic = () => {
                   )
                 }
               : company
-          )
-        );
+          );
+          return newCompanies;
+        });
 
         const companyAfterResolution = companies.find(c => c.id === activeQuiz.companyId);
         const remainingUnresolvedProblems = companyAfterResolution.problems.filter(p => !p.resolved && p.id !== activeQuiz.problem.id);
@@ -115,7 +133,7 @@ export const useGameLogic = () => {
           setCompaniesFullyResolved(prev => [...new Set([...prev, activeQuiz.companyId])]);
           setCompaniesWithActiveProblems(prev => prev.filter(id => id !== activeQuiz.companyId));
         }
-        
+
         setActiveQuiz(null);
         setIsProblemActive(false);
       }
@@ -143,5 +161,7 @@ export const useGameLogic = () => {
     handleAnswer,
     handleQuizClose,
     handleStartGame,
+    totalProblems,
+    resolvedProblemsCount,
   };
 };

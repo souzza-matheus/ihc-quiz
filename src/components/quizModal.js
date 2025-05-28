@@ -60,11 +60,6 @@ const QuizModal = ({ quiz, onAnswer, onClose }) => {
           </button>
         )}
         {feedback && <p className={`feedback ${answeredCorrectly ? 'correct' : 'incorrect'}`}>{feedback}</p>}
-        {answeredCorrectly && (
-            <button onClick={handleCloseModal} className="close-button">
-              Fechar
-            </button>
-        )}
       </div>
     </div>
   );

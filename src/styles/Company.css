@@ -1,53 +1,53 @@
 .company {
   position: absolute;
-  background: none; /* Fundo transparente */
-  border: none; /* Sem borda */
-  padding: 0; /* Sem padding no contêiner */
+  background: none; 
+  border: none;
+  padding: 0; 
   cursor: pointer;
-  box-shadow: none; /* Sem sombra no contêiner */
+  box-shadow: none; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 70px; /* Tamanho fixo para o ícone */
-  height: 70px; /* Tamanho fixo para o ícone */
+  width: 70px; 
+  height: 70px; 
   z-index: 6;
-  transition: transform 0.2s ease-in-out; /* Manter transição para hover */
-}
-
-.company:hover {
-  transform: translateY(-5px) scale(1.1); /* Efeito de flutuar e crescer no hover */
-}
-
-/* Estilo para emojis (se não houver imagem) */
-.company-icon {
-  font-size: 3.5em; /* Ícone emoji maior */
-  line-height: 1; /* Garante que o emoji não tenha espaço extra */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra mais destacada no emoji */
   transition: transform 0.2s ease-in-out;
 }
 
-/* Estilo para imagens (se 'company.image' for usado) */
+.company:hover {
+  transform: translateY(-5px) scale(1.1); 
+}
+
+
+.company-icon {
+  font-size: 3.5em; 
+  line-height: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out;
+}
+
+
 .company-img-icon {
-  width: 100%; /* Ocupa o tamanho definido no .company */
+  width: 100%;
   height: 100%;
-  object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
-  border-radius: 50%; /* Opcional: para ícones circulares */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para o ícone de imagem */
+  object-fit: contain; 
+  border-radius: 50%; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
   transition: transform 0.2s ease-in-out;
 }
 
 .company:hover .company-img-icon,
 .company:hover .company-icon {
-    transform: scale(1.05); /* Pequeno zoom no ícone ao passar o mouse */
+    transform: scale(1.05); 
 }
 
 
 .exclamation {
   position: absolute;
-  top: -15px; /* Posição ajustada em relação ao novo tamanho do ícone */
-  right: -15px; /* Posição ajustada em relação ao novo tamanho do ícone */
+  top: -15px; 
+  right: -15px;
   background-color: #e74c3c;
   border: 3px solid white;
   color: white;

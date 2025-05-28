@@ -13,7 +13,7 @@ export const gameData = {
     {
       id: 'empresa1',
       name: 'Loja de E-commerce "Click Fácil"',
-      position: { x: 100, y: 100 },
+      position: { x: 1200, y: 100 },
       image: eCommerceImg,
       problems: [
         {
@@ -235,7 +235,7 @@ export const gameData = {
     {
       id: 'empresa6',
       name: 'Escola Online "Mente Aberta"',
-      position: { x: 400, y: 500 },
+      position: { x: 1000, y: 500 },
       icon: '🎓',
       image: schoolImg,
       problems: [

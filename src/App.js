@@ -3,6 +3,7 @@ import Board from './components/board';
 import QuizModal from './components/quizModal';
 import IntroductionModal from './components/introductionModal';
 import FeedbackModal from './components/feedbackModal';
+import ProgressBar from './components/progressBar';
 import { useGameLogic } from './hooks/useGameLogic';
 import './styles/App.css';
 
@@ -20,6 +21,8 @@ const App = () => {
     handleAnswer,
     handleQuizClose,
     handleStartGame,
+    totalProblems,
+    resolvedProblemsCount
   } = useGameLogic();
 
   return (
@@ -28,8 +31,7 @@ const App = () => {
 
       {!showIntroduction && (
         <>
-          <h1>IHC Quest: O Desafio da Usabilidade</h1>
-          <div className="score">Pontuação: {score}</div>
+          <ProgressBar resolved={resolvedProblemsCount} total={totalProblems} />
           <Board
             companies={companies}
             playerPosition={playerPosition}
