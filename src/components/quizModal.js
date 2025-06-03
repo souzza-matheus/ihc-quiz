@@ -1,4 +1,4 @@
-import  { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/QuizModal.css';
 
 const QuizModal = ({ quiz, onAnswer, onClose }) => {
@@ -10,7 +10,7 @@ const QuizModal = ({ quiz, onAnswer, onClose }) => {
     setSelectedOption(null);
     setFeedback('');
     setAnsweredCorrectly(false);
-  }, [quiz]); 
+  }, [quiz]);
 
   const handleSubmit = () => {
     if (selectedOption !== null) {
@@ -18,7 +18,7 @@ const QuizModal = ({ quiz, onAnswer, onClose }) => {
       if (selected.isCorrect) {
         setFeedback(selected.feedback || 'Correto!');
         setAnsweredCorrectly(true);
-        onAnswer(true); 
+        onAnswer(true);
       } else {
         setFeedback('Ops! Tente novamente.');
         onAnswer(false);
@@ -27,11 +27,9 @@ const QuizModal = ({ quiz, onAnswer, onClose }) => {
   };
 
   const handleCloseModal = () => {
-
     if (answeredCorrectly) {
       onClose();
     } else {
-
       alert('Você precisa resolver o problema para sair!');
     }
   };
@@ -41,6 +39,13 @@ const QuizModal = ({ quiz, onAnswer, onClose }) => {
       <div className="modal-content">
         <h3>Problema na Empresa</h3>
         <p className="scenario">{quiz.scenario}</p>
+          <img
+            src={quiz.scenarioImage}
+            alt="Cenário do Problema"
+            className="scenario-image"
+            onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/400x200/CCCCCC/000000?text=Imagem+Nao+Disponivel"; }}
+          />
+        
         <p className="question">{quiz.question}</p>
         <div className="options">
           {quiz.options.map((option, index) => (
@@ -48,7 +53,7 @@ const QuizModal = ({ quiz, onAnswer, onClose }) => {
               key={index}
               className={`option-button ${selectedOption === index ? 'selected' : ''}`}
               onClick={() => setSelectedOption(index)}
-              disabled={answeredCorrectly} 
+              disabled={answeredCorrectly}
             >
               {option.text}
             </button>

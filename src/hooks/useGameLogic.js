@@ -152,7 +152,7 @@ export const useGameLogic = () => {
         setActiveQuiz(null);
         setIsProblemActive(false);
       }
-    }, 1500);
+    }, 2500);
   }, [activeQuiz, companies, showFeedback]);
 
   const handleQuizClose = useCallback(() => {
