@@ -5,7 +5,9 @@ import IntroductionModal from './components/introductionModal';
 import FeedbackModal from './components/feedbackModal';
 import ProgressBar from './components/progressBar';
 import { useGameLogic } from './hooks/useGameLogic';
+import SmallScreenWarning from './components/smallScreenWarning';
 import './styles/App.css';
+
 
 const App = () => {
   const {
@@ -22,34 +24,42 @@ const App = () => {
     handleQuizClose,
     handleStartGame,
     totalProblems,
-    resolvedProblemsCount
+    resolvedProblemsCount,
+    isLargeScreen,
   } = useGameLogic();
 
   return (
     <div className="app">
-      {showIntroduction && <IntroductionModal onStartGame={handleStartGame} />}
-
-      {!showIntroduction && (
+      {!isLargeScreen ? (
+        <SmallScreenWarning />
+      ) : (
         <>
-          <ProgressBar resolved={resolvedProblemsCount} total={totalProblems} />
-          <Board
-            companies={companies}
-            playerPosition={playerPosition}
-            onCompanyClick={handleCompanyClick}
-            companiesWithActiveProblems={companiesWithActiveProblems}
-            companiesFullyResolved={companiesFullyResolved}
-          />
-          {activeQuiz && (
-            <QuizModal
-              quiz={activeQuiz.problem}
-              onAnswer={handleAnswer}
-              onClose={handleQuizClose}
-            />
+          {showIntroduction && <IntroductionModal onStartGame={handleStartGame} />}
+
+          {!showIntroduction && (
+            <>
+              <h1>IHC Quest: O Desafio da Usabilidade</h1>
+              <ProgressBar resolved={resolvedProblemsCount} total={totalProblems} />
+              <Board
+                companies={companies}
+                playerPosition={playerPosition}
+                onCompanyClick={handleCompanyClick}
+                companiesWithActiveProblems={companiesWithActiveProblems}
+                companiesFullyResolved={companiesFullyResolved}
+              />
+              {activeQuiz && (
+                <QuizModal
+                  quiz={activeQuiz.problem}
+                  onAnswer={handleAnswer}
+                  onClose={handleQuizClose}
+                />
+              )}
+            </>
           )}
+
+          {feedback && <FeedbackModal message={feedback.message} type={feedback.type} />}
         </>
       )}
-
-      {feedback && <FeedbackModal message={feedback.message} type={feedback.type} />}
     </div>
   );
 };

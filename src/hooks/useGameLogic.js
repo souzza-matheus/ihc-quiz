@@ -13,6 +13,8 @@ const countResolvedProblemsInState = (companies) => {
   }, 0);
 };
 
+const MIN_SCREEN_WIDTH = 1600;
+
 export const useGameLogic = () => {
   const [companies, setCompanies] = useState(initializeCompanies);
   const [playerPosition, setPlayerPosition] = useState(companies[0].position);
@@ -26,6 +28,19 @@ export const useGameLogic = () => {
 
   const [totalProblems, setTotalProblems] = useState(() => calculateTotalProblems(initializeCompanies()));
   const [resolvedProblemsCount, setResolvedProblemsCount] = useState(0);
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= MIN_SCREEN_WIDTH);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      setIsLargeScreen(window.innerWidth >= MIN_SCREEN_WIDTH);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setResolvedProblemsCount(countResolvedProblemsInState(companies));
@@ -88,7 +103,7 @@ export const useGameLogic = () => {
   }, [showIntroduction, isProblemActive, activateRandomProblem]);
 
   const handleCompanyClick = useCallback((companyId) => {
-    if (showIntroduction || activeQuiz) return;
+    if (!isLargeScreen || showIntroduction || activeQuiz) return;
 
     const selectedCompany = companies.find(c => c.id === companyId);
     if (!selectedCompany) return;
@@ -101,7 +116,7 @@ export const useGameLogic = () => {
         setActiveQuiz({ companyId: selectedCompany.id, problem: activeProblem });
       }, 500);
     }
-  }, [showIntroduction, activeQuiz, companies]);
+  }, [showIntroduction, activeQuiz, companies, isLargeScreen]);
 
   const handleAnswer = useCallback((isCorrect) => {
     const feedbackMessage = isCorrect ? 'Resposta Correta!' : 'Resposta Incorreta!';
@@ -133,7 +148,7 @@ export const useGameLogic = () => {
           setCompaniesFullyResolved(prev => [...new Set([...prev, activeQuiz.companyId])]);
           setCompaniesWithActiveProblems(prev => prev.filter(id => id !== activeQuiz.companyId));
         }
-
+        
         setActiveQuiz(null);
         setIsProblemActive(false);
       }
@@ -163,5 +178,6 @@ export const useGameLogic = () => {
     handleStartGame,
     totalProblems,
     resolvedProblemsCount,
+    isLargeScreen,
   };
 };
